@@ -5,7 +5,7 @@ import 'result_screen.dart';
 
 class InputScreen extends StatelessWidget {
   final TextEditingController nicController = TextEditingController();
-  final NicController nicLogic = Get.find();
+  final NicController nicLogic = Get.put(NicController());
 
   @override
   Widget build(BuildContext context) {
