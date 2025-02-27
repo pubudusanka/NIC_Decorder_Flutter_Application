@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'screens/input_screen.dart';
+import 'screens/result_screen.dart';
+import 'controllers/nic_controller.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'NIC Decoder',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      initialBinding: BindingsBuilder(() {
+        Get.put(NicController());
+      }),
+      home: InputScreen(),
     );
   }
 }
