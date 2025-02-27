@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controllers/nic_controller.dart';
+import 'result_screen.dart';
 
 class InputScreen extends StatelessWidget {
   final TextEditingController nicController = TextEditingController();
