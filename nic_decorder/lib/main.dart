@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'screens/input_screen.dart';
-import 'screens/result_screen.dart';
 import 'controllers/nic_controller.dart';
 
 void main() {
