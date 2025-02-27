@@ -12,12 +12,14 @@ class NicController extends GetxController {
       isNewFormat.value = true;
       birthYear.value = nic.substring(0, 4);
       birthDate.value = calculateBirthDate(nic.substring(4, 7), birthYear.value);
+      gender.value = calculateGender(nic.substring(7, 10));
       canVote.value = true;
     } else if (nic.length == 10 && (nic.endsWith('V') || nic.endsWith('X'))) {
       isNewFormat.value = false;
       birthYear.value = "19" + nic.substring(0, 2);
       birthDate.value = calculateBirthDate(nic.substring(2, 5), birthYear.value);
-      canVote.value = nic.endsWith('V');
+      gender.value = calculateGender(nic.substring(5, 8));
+      canVote.value = true;
     } else {
       birthYear.value = 'Invalid NIC';
       birthDate.value = '';
@@ -35,5 +37,14 @@ class NicController extends GetxController {
     String formattedDate = "${birthDateComputed.day}-${birthDateComputed.month}-${birthDateComputed.year}";
     birthDate.value = formattedDate;
     return formattedDate;
+  }
+
+  String calculateGender(String dayCode) {
+    int dayOfYear = int.tryParse(dayCode) ?? 0;
+    if (dayOfYear > 500) {
+      return 'Female';
+    } else {
+      return 'Male';
+    }
   }
 }
