@@ -14,11 +14,11 @@ class NicController extends GetxController {
       birthDate.value = calculateBirthDate(nic.substring(4, 7), birthYear.value);
       gender.value = calculateGender(nic.substring(7, 10));
       canVote.value = true;
-    } else if (nic.length == 10 && (nic.endsWith('V') || nic.endsWith('X'))) {
+    } else if (nic.length == 10 && (nic.endsWith('V') || nic.endsWith('X') || nic.endsWith('v') || nic.endsWith('x'))) {
       isNewFormat.value = false;
       birthYear.value = "19" + nic.substring(0, 2);
       birthDate.value = calculateBirthDate(nic.substring(2, 5), birthYear.value);
-      gender.value = calculateGender(nic.substring(5, 8));
+      gender.value = calculateGender(nic.substring(2,5));
       canVote.value = true;
     } else {
       birthYear.value = 'Invalid NIC';
